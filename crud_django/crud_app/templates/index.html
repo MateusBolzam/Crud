@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{%load static%}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Classes</title>
+</head>
+<body>
+    {% block body_block  %}
+    <h1>Lista de Classes</h1>
+    
+    <!-- Tabela de Classes -->
+    <table id="classTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Status</th>
+                <th>Int Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for class in classes %}
+                <tr>
+                    <td>{{ class.name }}</td>
+                    <td>{{ class.status }}</td>
+                    <td>{{ class.intStatus }}</td>
+                    <td><a href="{% url 'update_delete_classes' class.id %}">Mecher</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock  %}
+
+</body>
+</html>

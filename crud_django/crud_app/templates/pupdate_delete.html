@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+    <h1>Aleteração</h1>
+    <form id="createForm" onsubmit="alterarRecurso()">
+        <!-- Campos do formulário para criar uma nova classe -->
+        <label for="newClassName">Nome:</label>
+    <input type="text" id="newClassName" value="{{ default_class_name }}" required>
+    
+        <label for="newClassStatus">Classes:</label>
+        <select name="status" id="newClassStatus">
+            {% for classes in classes_options %}
+                <option value="{{ classes }}">{{ classes }}</option>
+            {% endfor %}
+        </select>
+        
+        <button type="submit" onclick="alterarRecurso()">Editar</button>
+        <button type="button" onclick="deletarRecurso()">Deletar</button>
+    </form>
+
+    {% block script  %} 
+    <script>
+        var id = {{id}}
+        var ids = [{% for id in ids %}{{ id }},{% endfor %}];
+        var classes = [{% for classe in classes_ordem %}"{{ classe }}",{% endfor %}];
+    </script>
+    <script src="{% static 'js/putdeletep.js' %}"></script>
+    {% endblock  %}
+
+
+{% endblock %}
