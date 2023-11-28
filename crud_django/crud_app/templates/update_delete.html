@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}Atualizar Recurso{% endblock %}
+
 {% block body_block %}
-    <h1>Aleteração</h1>
+    <h1>Atualização</h1>
     <form id="createForm" onsubmit="alterarRecurso()">
         <!-- Campos do formulário para criar uma nova classe -->
         <label for="newClassName">Nome:</label>
-    <input type="text" id="newClassName" value="{{ default_class_name }}" required>
+        <input type="text" id="newClassName" value="{{ default_class_name }}" required>
     
         <label for="newClassStatus">Status:</label>
         <select name="status" id="newClassStatus">
@@ -16,10 +18,10 @@
         </select>
     
         <label for="newClassIntStatus">Int Status:</label>
-    <input type="number" id="newClassIntStatus" value="{{ default_int_status }}" required>
+        <input type="number" id="newClassIntStatus" value="{{ default_int_status }}" required>
         
-        <button type="submit" onclick="alterarRecurso()">Editar</button>
-        <button type="button" onclick="deletarRecurso()">Deletar</button>
+        <button type="submit" class="btn btn-primary" onclick="alterarRecurso()">Editar</button>
+        <button type="button" class="btn btn-danger" onclick="deletarRecurso()">Deletar</button>
     </form>
 
     {% block script  %} 
@@ -28,6 +30,4 @@
     </script>
     <script src="{% static 'js/putdelete.js' %}"></script>
     {% endblock  %}
-
-
 {% endblock %}

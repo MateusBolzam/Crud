@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'crudsimples',
         'USER': 'postgres',
-        'PASSWORD': ' ',
+        'PASSWORD': '0511',
         'HOST': 'localhost',
         'PORT': '',  # Opcional: você pode especificar a porta se não for a padrão
     }

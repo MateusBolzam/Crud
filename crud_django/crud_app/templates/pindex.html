@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 
-{%load static%}
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Classes</title>
+    <title>Lista de Personagens</title>
+
+    <!-- Deixe o bloco de estilos em branco nesta página, pois já foi definido no bloco de estilos do arquivo base.html -->
+    {% block css %}{% endblock %}
 </head>
 <body>
     {% block body_block  %}
-    <h1>Lista de Classes</h1>
+    <h1>Lista de Personagens</h1>
     
     <!-- Tabela de Classes -->
-    <table id="classTable">
+    <table id="classTable" class="table table-striped">
         <thead>
             <tr>
                 <th>Nome</th>
@@ -26,12 +27,11 @@
                 <tr>
                     <td>{{ persona.name }}</td>
                     <td>{{ persona.classes }}</td>
-                    <td><a href="{% url 'update_delete_personagem' persona.id %}">Mexer</a></td>
+                    <td><a href="{% url 'update_delete_personagem' persona.id %}" class="btn btn-primary">Mexer</a></td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
     {% endblock  %}
-
 </body>
 </html>

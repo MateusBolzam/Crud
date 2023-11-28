@@ -2,40 +2,29 @@
 
 {%load static%}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Nova Classe</title>
-</head>
-<body>
-    {% block body_block  %}
-    <h1>Criar Nova Classe</h1>
-    <form id="createForm" onsubmit="createClass(event)">
-        <!-- Campos do formulário para criar uma nova classe -->
-        <label for="newClassName">Nome:</label>
-        <input type="text" id="newClassName" required>
-        
-        <label for="newClassStatus">Status:</label>
-        <select name="status" id="newClassStatus">
-            {% for option in status_options %}
-                <option value="{{ option }}">{{ option }}</option>
-            {% endfor %}
-        </select>
-        
-        <label for="newClassIntStatus">Int Status:</label>
-        <input type="number" id="newClassIntStatus" required>
+{% block title %}Criar Nova Classe{% endblock %}
 
-        <button type="submit">Criar</button>
-    </form>
-
-    {% endblock  %}
-
-
-    {% block script  %}
-    <script src="{% static 'js/post.js' %}"></script>
-    {% endblock  %}
+{% block body_block %}
+<h1>Criar Nova Classe</h1>
+<form id="createForm" onsubmit="createClass(event)">
+    <!-- Campos do formulário para criar uma nova classe -->
+    <label for="newClassName">Nome:</label>
+    <input type="text" id="newClassName" required>
     
-</body>
-</html>
+    <label for="newClassStatus">Status:</label>
+    <select name="status" id="newClassStatus">
+        {% for option in status_options %}
+            <option value="{{ option }}">{{ option }}</option>
+        {% endfor %}
+    </select>
+    
+    <label for="newClassIntStatus">Bonus do Status:</label>
+    <input type="number" id="newClassIntStatus" required>
+
+    <button type="submit" class="btn btn-primary">Criar</button>
+</form>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/post.js' %}"></script>
+{% endblock %}
